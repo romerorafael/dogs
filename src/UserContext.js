@@ -39,6 +39,8 @@ export const UserStorage = ({ children }) => {
         } finally {
           setLoading(false);
         }
+      } else {
+        setLogin(false);
       }
     }
   }, [userLogout]);
@@ -57,6 +59,7 @@ export const UserStorage = ({ children }) => {
       setLoading(true);
       const { url, options } = TOKEN_POST({ username, password });
       const tokenRes = await fetch(url, options);
+
       if (!tokenRes) throw new Error(`Error: ${tokenRes.statusText}`);
 
       const { token } = await tokenRes.json();

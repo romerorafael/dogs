@@ -8,6 +8,8 @@ import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
+import User from './Components/User/User';
+import ProtectedRouter from './Components/Helper/ProtectedRouter/ProtectedRouter';
 
 function App() {
   return (
@@ -17,7 +19,15 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login/*" element={<Login />} />
+            <Route path="login/*" element={<Login />} />
+            <Route
+              path="conta/*"
+              element={
+                <ProtectedRouter>
+                  <User />
+                </ProtectedRouter>
+              }
+            />
           </Routes>
           <Footer />
         </UserStorage>
