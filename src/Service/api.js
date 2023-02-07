@@ -130,7 +130,7 @@ export function PASSWORD_RECOVER(body) {
   };
 }
 
-export function STAST_GET(token) {
+export function STATS_GET(token) {
   return {
     url: API_URL + `/api/stats`,
     options: {

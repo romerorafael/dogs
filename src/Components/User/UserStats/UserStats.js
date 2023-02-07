@@ -1,21 +1,22 @@
 import React from 'react';
 import Head from '../../Helper/Head/Head';
 import useFetch from '../../../Hooks/useFetch';
-import { STAST_GET } from '../../../Service/api';
+import { STATS_GET } from '../../../Service/api';
 import Loading from '../../Helper/Loading/Loading';
 import Error from '../../Helper/Error/Error';
 const UserStatsGraph = React.lazy(() =>
   import('./UserStatsGraph/UserStatsGraph'),
 );
+
 const UserStats = () => {
   const { data, error, loading, request } = useFetch();
+
   React.useEffect(() => {
     async function getData() {
-      const token = localStorage.getItem('token');
-      const { url, options } = STAST_GET(token);
+      const token = window.localStorage.getItem('token');
+      const { url, options } = STATS_GET(token);
       await request(url, options);
     }
-
     getData();
   }, [request]);
 
@@ -28,6 +29,7 @@ const UserStats = () => {
         <UserStatsGraph data={data} />
       </React.Suspense>
     );
+  else return null;
 };
 
 export default UserStats;
