@@ -9,7 +9,10 @@ import Header from './Components/Header/Header';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import User from './Components/User/User';
+import UserProfile from './Components/User/UserProfile/UserProfile';
 import ProtectedRouter from './Components/Helper/ProtectedRouter/ProtectedRouter';
+import Photo from './Components/Photo/Photo';
+import NotFound from './Components/NotFound/NotFound';
 
 function App() {
   return (
@@ -28,6 +31,9 @@ function App() {
                 </ProtectedRouter>
               }
             />
+            <Route path="foto/:id" element={<Photo />}></Route>
+            <Route path="perfil/:user" element={<UserProfile />}></Route>
+            <Route path="*" element={<NotFound />}></Route>
           </Routes>
           <Footer />
         </UserStorage>
