@@ -129,3 +129,16 @@ export function PASSWORD_RECOVER(body) {
     },
   };
 }
+
+export function STAST_GET(token) {
+  return {
+    url: API_URL + `/api/stats`,
+    options: {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token,
+      },
+    },
+  };
+}
