@@ -17,3 +17,9 @@
   heigth: 0px;
   padding-bottom: 100%;
 }
+
+@media (max-width: 40rem) {
+  .photPost {
+    grid-template-columns: 1fr;
+  }
+}
